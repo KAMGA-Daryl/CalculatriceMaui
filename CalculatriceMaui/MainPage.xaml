@@ -1,0 +1,63 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CalculatriceMaui.MainPage"
+             BackgroundColor="#121212">
+
+    <VerticalStackLayout Spacing="15" Padding="20" VerticalOptions="Center">
+
+        <!-- Écran d'affichage -->
+        <Border Stroke="#333333"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle 12"
+                BackgroundColor="#1E1E1E"
+                Padding="15">
+            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <VerticalStackLayout Spacing="5" HorizontalOptions="End">
+                    <Label x:Name="lblOperation"
+                           Text=""
+                           FontSize="18"
+                           TextColor="#888888"
+                           HorizontalTextAlignment="End"/>
+                    <Label x:Name="lblResult"
+                           Text="0"
+                           FontSize="40"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalTextAlignment="End"/>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Border>
+
+        <!-- Ligne de boutons utilitaires -->
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="FillAndExpand">
+            <Button Text="C" Clicked="OnClearClicked" BackgroundColor="#D32F2F" TextColor="White" HeightRequest="60" HorizontalOptions="FillAndExpand"/>
+            <Button Text="⌫" Clicked="OnBackSpaceClicked" BackgroundColor="#E64A19" TextColor="White" HeightRequest="60" HorizontalOptions="FillAndExpand"/>
+            <Button Text="%" Clicked="OnPercentageClicked" BackgroundColor="#616161" TextColor="White" HeightRequest="60" HorizontalOptions="FillAndExpand"/>
+            <Button Text="÷" Clicked="OnOperatorClicked" CommandParameter="÷" BackgroundColor="#FF9800" TextColor="White" HeightRequest="60" HorizontalOptions="FillAndExpand"/>
+        </HorizontalStackLayout>
+
+        <!-- Grille du pavé numérique -->
+        <Grid RowDefinitions="*,*,*,*" ColumnDefinitions="*,*,*,*" RowSpacing="10" ColumnSpacing="10">
+            <Button Grid.Row="0" Grid.Column="0" Text="7" Clicked="OnNumberClicked" CommandParameter="7" BackgroundColor="#2D2D2D" TextColor="White" HeightRequest="65"/>
+            <Button Grid.Row="0" Grid.Column="1" Text="8" Clicked="OnNumberClicked" CommandParameter="8" BackgroundColor="#2D2D2D" TextColor="White" HeightRequest="65"/>
+            <Button Grid.Row="0" Grid.Column="2" Text="9" Clicked="OnNumberClicked" CommandParameter="9" BackgroundColor="#2D2D2D" TextColor="White" HeightRequest="65"/>
+            <Button Grid.Row="0" Grid.Column="3" Text="×" Clicked="OnOperatorClicked" CommandParameter="×" BackgroundColor="#FF9800" TextColor="White" HeightRequest="65"/>
+
+            <Button Grid.Row="1" Grid.Column="0" Text="4" Clicked="OnNumberClicked" CommandParameter="4" BackgroundColor="#2D2D2D" TextColor="White" HeightRequest="65"/>
+            <Button Grid.Row="1" Grid.Column="1" Text="5" Clicked="OnNumberClicked" CommandParameter="5" BackgroundColor="#2D2D2D" TextColor="White" HeightRequest="65"/>
+            <Button Grid.Row="1" Grid.Column="2" Text="6" Clicked="OnNumberClicked" CommandParameter="6" BackgroundColor="#2D2D2D" TextColor="White" HeightRequest="65"/>
+            <Button Grid.Row="1" Grid.Column="3" Text="-" Clicked="OnOperatorClicked" CommandParameter="-" BackgroundColor="#FF9800" TextColor="White" HeightRequest="65"/>
+
+            <Button Grid.Row="2" Grid.Column="0" Text="1" Clicked="OnNumberClicked" CommandParameter="1" BackgroundColor="#2D2D2D" TextColor="White" HeightRequest="65"/>
+            <Button Grid.Row="2" Grid.Column="1" Text="2" Clicked="OnNumberClicked" CommandParameter="2" BackgroundColor="#2D2D2D" TextColor="White" HeightRequest="65"/>
+            <Button Grid.Row="2" Grid.Column="2" Text="3" Clicked="OnNumberClicked" CommandParameter="3" BackgroundColor="#2D2D2D" TextColor="White" HeightRequest="65"/>
+            <Button Grid.Row="2" Grid.Column="3" Text="+" Clicked="OnOperatorClicked" CommandParameter="+" BackgroundColor="#FF9800" TextColor="White" HeightRequest="65"/>
+
+            <Button Grid.Row="3" Grid.Column="0" Text="±" Clicked="OnSignChangedClicked" BackgroundColor="#616161" TextColor="White" HeightRequest="65"/>
+            <Button Grid.Row="3" Grid.Column="1" Text="0" Clicked="OnNumberClicked" CommandParameter="0" BackgroundColor="#2D2D2D" TextColor="White" HeightRequest="65"/>
+            <Button Grid.Row="3" Grid.Column="2" Text="." Clicked="OnDecimalClicked" BackgroundColor="#616161" TextColor="White" HeightRequest="65"/>
+            <Button Grid.Row="3" Grid.Column="3" Text="=" Clicked="OnEqualsClicked" BackgroundColor="#4CAF50" TextColor="White" HeightRequest="65"/>
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentPage>
